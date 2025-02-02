@@ -142,7 +142,7 @@ class Main extends LoveProgram {
 			curY += 1;
 		}
 
-		outtedSprite.encode(ImageFormat.Png, "out.png");
+		// outtedSprite.encode(ImageFormat.Png, "out.png");
 		spriteSheetImage = GraphicsModule.newImage(outtedSprite);
 		spriteSheetImage.setFilter(FilterMode.Nearest, FilterMode.Nearest);
 		// trace(thgng.join("\n--[[       PART       ]]--\n"));
@@ -200,6 +200,9 @@ class Main extends LoveProgram {
 			// GraphicsModule.rectangle(DrawMode.Fill, x, y, 8, 8);
 		}
 		ENV.cls = function(col:Int) {
+			if (col == null) {
+				col = 0;
+			}
 			var colFromCol:Array<Int> = getColorPallete(col);
 			col = Std.int(Math.max(0, col));
 			col = Std.int(Math.min(col, pallete.length - 1));

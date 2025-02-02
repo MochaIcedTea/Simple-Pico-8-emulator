@@ -186,6 +186,7 @@ local Array = _hx_e()
 __love_LoveProgram = _hx_e()
 local Main = _hx_e()
 local Pico8File = _hx_e()
+local PalleteChange = _hx_e()
 local Math = _hx_e()
 local String = _hx_e()
 local Std = _hx_e()
@@ -585,6 +586,7 @@ Main.new = function()
 end
 Main.super = function(self) 
   self.shouldRunThisFrame = false;
+  self.palleteSwitches = _hx_tab_array({}, 0);
   self.pallete = _hx_tab_array({[0]=_hx_tab_array({[0]=0, 0, 0}, 3), _hx_tab_array({[0]=29, 42, 83}, 3), _hx_tab_array({[0]=126, 37, 83}, 3), _hx_tab_array({[0]=0, 135, 81}, 3), _hx_tab_array({[0]=171, 82, 54}, 3), _hx_tab_array({[0]=95, 87, 79}, 3), _hx_tab_array({[0]=194, 195, 199}, 3), _hx_tab_array({[0]=255, 241, 232}, 3), _hx_tab_array({[0]=255, 0, 77}, 3), _hx_tab_array({[0]=255, 163, 0}, 3), _hx_tab_array({[0]=255, 236, 39}, 3), _hx_tab_array({[0]=0, 228, 54}, 3), _hx_tab_array({[0]=41, 173, 255}, 3), _hx_tab_array({[0]=131, 118, 156}, 3), _hx_tab_array({[0]=255, 119, 168}, 3), _hx_tab_array({[0]=255, 204, 170, 255}, 4)}, 16);
   self.hasInitedENV = false;
   self.initFuncRan = false;
@@ -623,7 +625,7 @@ Main.prototype.load = function(self)
   self.canvasForDrawing:setFilter("nearest", "nearest");
   local _hx_1__script_contents, _hx_1__script_size, _hx_1__script_contents1, _hx_1__script_error = love.filesystem.read("hello.p8");
   local thgng = self:splitFileIntoParts(_hx_1__script_contents);
-  __haxe_Log.trace(thgng.code, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=94,className="Main",methodName="load"}));
+  __haxe_Log.trace(thgng.code, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=96,className="Main",methodName="load"}));
   local spriteSheet = _hx_tab_array({}, 0);
   local splittedSheet = String.prototype.split(thgng.gfx, "\n");
   local _g = 0;
@@ -643,10 +645,10 @@ Main.prototype.load = function(self)
     spriteSheet:push(lineee);
   end;
   spriteSheet:remove(spriteSheet[0]);
-  __haxe_Log.trace(spriteSheet:join(","), _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=107,className="Main",methodName="load"}));
+  __haxe_Log.trace(spriteSheet:join(","), _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=109,className="Main",methodName="load"}));
   local heightSprSheet = spriteSheet.length;
   local widthSprSheet = spriteSheet[1].length;
-  __haxe_Log.trace(widthSprSheet, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=111,className="Main",methodName="load",customParams=_hx_tab_array({[0]=heightSprSheet}, 1)}));
+  __haxe_Log.trace(widthSprSheet, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=113,className="Main",methodName="load",customParams=_hx_tab_array({[0]=heightSprSheet}, 1)}));
   local outtedSprite = love.image.newImageData(widthSprSheet, heightSprSheet);
   local curY = 1;
   local curX = 1;
@@ -656,7 +658,7 @@ Main.prototype.load = function(self)
     local line = spriteSheet[_g];
     _g = _g + 1;
     curX = 1;
-    __haxe_Log.trace(line, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=118,className="Main",methodName="load"}));
+    __haxe_Log.trace(line, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=120,className="Main",methodName="load"}));
     local _g = 0;
     while (_g < line.length) do _hx_do_first_2 = false;
       
@@ -670,8 +672,8 @@ Main.prototype.load = function(self)
           local r = Math.max(Math.min(colFromCol[0] / 255, 1), 0.0);
           local g = Math.max(Math.min(colFromCol[1] / 255, 1), 0.0);
           local b = Math.max(Math.min(colFromCol[2] / 255, 1), 0.0);
-          __haxe_Log.trace(r, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=131,className="Main",methodName="load",customParams=_hx_tab_array({[0]=g, b}, 2)}));
-          __haxe_Log.trace(curX, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=132,className="Main",methodName="load",customParams=_hx_tab_array({[0]=curY}, 1)}));
+          __haxe_Log.trace(r, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=133,className="Main",methodName="load",customParams=_hx_tab_array({[0]=g, b}, 2)}));
+          __haxe_Log.trace(curX, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=134,className="Main",methodName="load",customParams=_hx_tab_array({[0]=curY}, 1)}));
           if ((((curX < widthSprSheet) and (curY < heightSprSheet)) and (curX > 0)) and (curY > 0)) then 
             outtedSprite:setPixel(curX - 1, curY - 1, r, g, b, 255);
           end;
@@ -689,10 +691,10 @@ Main.prototype.load = function(self)
     
   end;
   if ((self.script.message ~= nil) and (self.script.message ~= "")) then 
-    __haxe_Log.trace(self.script.message, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=151,className="Main",methodName="load"}));
+    __haxe_Log.trace(self.script.message, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=153,className="Main",methodName="load"}));
   end;
 end
-Main.prototype.setColToPalleteCol = function(self,col) 
+Main.prototype.getColorPallete = function(self,col) 
   if (col == nil) then 
     col = 0;
   end;
@@ -701,7 +703,20 @@ Main.prototype.setColToPalleteCol = function(self,col)
   end;
   col = Std.int(Math.max(0, col));
   col = Std.int(Math.min(col, self.pallete.length - 1));
-  local colFromCol = self.pallete[col];
+  local _g = 0;
+  local _g1 = self.palleteSwitches;
+  while (_g < _g1.length) do _hx_do_first_1 = false;
+    
+    local palSwap = _g1[_g];
+    _g = _g + 1;
+    if (palSwap.oColor == col) then 
+      col = palSwap.nColor;
+    end;
+  end;
+  do return self.pallete[col] end
+end
+Main.prototype.setColToPalleteCol = function(self,col) 
+  local colFromCol = self:getColorPallete(col);
   if (colFromCol == nil) then 
     do return end;
   end;
@@ -710,7 +725,7 @@ end
 Main.prototype.addFunctions = function(self,ENV) 
   local _gthis = self;
   ENV.music = function(i) 
-    __haxe_Log.trace("mus ran!", _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=176,className="Main",methodName="addFunctions"}));
+    __haxe_Log.trace("mus ran!", _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=187,className="Main",methodName="addFunctions"}));
   end;
   ENV.spr = function(spr,x,y) 
     local sprSheetXs = _gthis.spriteSheetImage:getWidth();
@@ -723,10 +738,7 @@ Main.prototype.addFunctions = function(self,ENV)
     if (col == nil) then 
       col = 0;
     end;
-    if (col == (0/0)) then 
-      col = 0;
-    end;
-    local colFromCol = _gthis.pallete[col];
+    local colFromCol = _gthis:getColorPallete(col);
     col = Std.int(Math.max(0, col));
     col = Std.int(Math.min(col, _gthis.pallete.length - 1));
     love.graphics.clear(colFromCol[0], colFromCol[1], colFromCol[2]);
@@ -874,7 +886,7 @@ Main.prototype.update = function(self,dt)
       _G.setfenv(self.script.func, self.scriptENV);
       self:addFunctions(self.scriptENV);
       self.script.func();
-      __haxe_Log.trace(self.scriptENV, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=330,className="Main",methodName="update"}));
+      __haxe_Log.trace(self.scriptENV, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=338,className="Main",methodName="update"}));
       self.drawFunction = self:getTableValue(self.scriptENV, "_draw");
       self.updateFunction = self:getTableValue(self.scriptENV, "_update");
       self.update60Function = self:getTableValue(self.scriptENV, "_update60");
@@ -888,7 +900,7 @@ Main.prototype.update = function(self,dt)
   end;
   local tmp = self;
   tmp.time = tmp.time + dt;
-  __haxe_Log.trace(self.time, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=343,className="Main",methodName="update"}));
+  __haxe_Log.trace(self.time, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=351,className="Main",methodName="update"}));
   if ((self.updateFunction ~= nil) and self.shouldRunThisFrame) then 
     self.updateFunction();
   end;
@@ -918,6 +930,17 @@ Pico8File.super = function(self,code,gfx,sfx,label,music)
   self.music = music;
 end
 Pico8File.__name__ = true
+
+PalleteChange.new = function(oColor,nColor) 
+  local self = _hx_new()
+  PalleteChange.super(self,oColor,nColor)
+  return self
+end
+PalleteChange.super = function(self,oColor,nColor) 
+  self.oColor = oColor;
+  self.nColor = nColor;
+end
+PalleteChange.__name__ = true
 
 Math.new = {}
 Math.__name__ = true
