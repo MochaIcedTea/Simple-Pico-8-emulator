@@ -28,11 +28,12 @@ function _draw()
 		end
  end
 	
-	print("this is pico-8",
+	print("This is Pico-8",
 	 37, 70, 14) 
-	print("nice to meet you",
+	print("Nice to meet you",
 	 34, 80, 12) 
 	spr(1, 64-4, 90) -- ♥
+	print(tostr(t()))
 end
 
 

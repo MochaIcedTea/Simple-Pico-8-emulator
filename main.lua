@@ -586,8 +586,404 @@ Main.new = function()
 end
 Main.super = function(self) 
   self.shouldRunThisFrame = false;
+  self.lastTextPosition = _hx_tab_array({}, 0);
+  self.lastTextColor = -1;
+  self.currentColorPalleteIndices = _hx_tab_array({}, 0);
+  self.defaultColorPalleteIndices = _hx_tab_array({[0]=0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}, 17);
+  local _g = __haxe_ds_StringMap.new();
+  local value = _hx_tab_array({[0]=100, 11, 5, 5, 0, 1}, 6);
+  if (value == nil) then 
+    _g.h["-"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["-"] = value;
+  end;
+  local value = _hx_tab_array({[0]=68, 11, 5, 5, 0, 0}, 6);
+  if (value == nil) then 
+    _g.h._ = __haxe_ds_StringMap.tnull;
+  else
+    _g.h._ = value;
+  end;
+  local value = _hx_tab_array({[0]=0, 0}, 2);
+  if (value == nil) then 
+    _g.h.a = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.a = value;
+  end;
+  local value = _hx_tab_array({[0]=4, 0}, 2);
+  if (value == nil) then 
+    _g.h.b = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.b = value;
+  end;
+  local value = _hx_tab_array({[0]=8, 0}, 2);
+  if (value == nil) then 
+    _g.h.c = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.c = value;
+  end;
+  local value = _hx_tab_array({[0]=12, 0}, 2);
+  if (value == nil) then 
+    _g.h.d = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.d = value;
+  end;
+  local value = _hx_tab_array({[0]=16, 0}, 2);
+  if (value == nil) then 
+    _g.h.e = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.e = value;
+  end;
+  local value = _hx_tab_array({[0]=20, 0}, 2);
+  if (value == nil) then 
+    _g.h.f = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.f = value;
+  end;
+  local value = _hx_tab_array({[0]=24, 0}, 2);
+  if (value == nil) then 
+    _g.h.g = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.g = value;
+  end;
+  local value = _hx_tab_array({[0]=28, 0}, 2);
+  if (value == nil) then 
+    _g.h.h = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.h = value;
+  end;
+  local value = _hx_tab_array({[0]=32, 0}, 2);
+  if (value == nil) then 
+    _g.h.i = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.i = value;
+  end;
+  local value = _hx_tab_array({[0]=36, 0}, 2);
+  if (value == nil) then 
+    _g.h.j = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.j = value;
+  end;
+  local value = _hx_tab_array({[0]=40, 0}, 2);
+  if (value == nil) then 
+    _g.h.k = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.k = value;
+  end;
+  local value = _hx_tab_array({[0]=44, 0}, 2);
+  if (value == nil) then 
+    _g.h.l = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.l = value;
+  end;
+  local value = _hx_tab_array({[0]=48, 0}, 2);
+  if (value == nil) then 
+    _g.h.m = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.m = value;
+  end;
+  local value = _hx_tab_array({[0]=52, 0}, 2);
+  if (value == nil) then 
+    _g.h.n = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.n = value;
+  end;
+  local value = _hx_tab_array({[0]=56, 0}, 2);
+  if (value == nil) then 
+    _g.h.o = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.o = value;
+  end;
+  local value = _hx_tab_array({[0]=60, 0}, 2);
+  if (value == nil) then 
+    _g.h.p = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.p = value;
+  end;
+  local value = _hx_tab_array({[0]=64, 0}, 2);
+  if (value == nil) then 
+    _g.h.q = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.q = value;
+  end;
+  local value = _hx_tab_array({[0]=68, 0}, 2);
+  if (value == nil) then 
+    _g.h.r = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.r = value;
+  end;
+  local value = _hx_tab_array({[0]=72, 0}, 2);
+  if (value == nil) then 
+    _g.h.s = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.s = value;
+  end;
+  local value = _hx_tab_array({[0]=76, 0}, 2);
+  if (value == nil) then 
+    _g.h.t = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.t = value;
+  end;
+  local value = _hx_tab_array({[0]=80, 0}, 2);
+  if (value == nil) then 
+    _g.h.u = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.u = value;
+  end;
+  local value = _hx_tab_array({[0]=84, 0}, 2);
+  if (value == nil) then 
+    _g.h.v = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.v = value;
+  end;
+  local value = _hx_tab_array({[0]=88, 0}, 2);
+  if (value == nil) then 
+    _g.h.w = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.w = value;
+  end;
+  local value = _hx_tab_array({[0]=92, 0}, 2);
+  if (value == nil) then 
+    _g.h.x = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.x = value;
+  end;
+  local value = _hx_tab_array({[0]=96, 0}, 2);
+  if (value == nil) then 
+    _g.h.y = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.y = value;
+  end;
+  local value = _hx_tab_array({[0]=100, 0}, 2);
+  if (value == nil) then 
+    _g.h.z = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.z = value;
+  end;
+  local value = _hx_tab_array({[0]=0, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.A = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.A = value;
+  end;
+  local value = _hx_tab_array({[0]=4, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.B = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.B = value;
+  end;
+  local value = _hx_tab_array({[0]=8, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.C = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.C = value;
+  end;
+  local value = _hx_tab_array({[0]=12, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.D = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.D = value;
+  end;
+  local value = _hx_tab_array({[0]=16, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.E = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.E = value;
+  end;
+  local value = _hx_tab_array({[0]=20, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.F = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.F = value;
+  end;
+  local value = _hx_tab_array({[0]=24, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.G = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.G = value;
+  end;
+  local value = _hx_tab_array({[0]=28, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.H = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.H = value;
+  end;
+  local value = _hx_tab_array({[0]=32, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.I = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.I = value;
+  end;
+  local value = _hx_tab_array({[0]=36, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.J = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.J = value;
+  end;
+  local value = _hx_tab_array({[0]=40, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.K = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.K = value;
+  end;
+  local value = _hx_tab_array({[0]=44, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.L = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.L = value;
+  end;
+  local value = _hx_tab_array({[0]=48, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.M = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.M = value;
+  end;
+  local value = _hx_tab_array({[0]=52, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.N = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.N = value;
+  end;
+  local value = _hx_tab_array({[0]=56, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.O = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.O = value;
+  end;
+  local value = _hx_tab_array({[0]=60, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.P = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.P = value;
+  end;
+  local value = _hx_tab_array({[0]=64, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.Q = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.Q = value;
+  end;
+  local value = _hx_tab_array({[0]=68, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.R = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.R = value;
+  end;
+  local value = _hx_tab_array({[0]=72, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.S = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.S = value;
+  end;
+  local value = _hx_tab_array({[0]=76, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.T = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.T = value;
+  end;
+  local value = _hx_tab_array({[0]=80, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.U = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.U = value;
+  end;
+  local value = _hx_tab_array({[0]=84, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.V = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.V = value;
+  end;
+  local value = _hx_tab_array({[0]=88, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.W = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.W = value;
+  end;
+  local value = _hx_tab_array({[0]=92, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.X = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.X = value;
+  end;
+  local value = _hx_tab_array({[0]=96, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.Y = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.Y = value;
+  end;
+  local value = _hx_tab_array({[0]=100, 7, 5, 4, 0, 2}, 6);
+  if (value == nil) then 
+    _g.h.Z = __haxe_ds_StringMap.tnull;
+  else
+    _g.h.Z = value;
+  end;
+  local value = _hx_tab_array({[0]=0, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["0"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["0"] = value;
+  end;
+  local value = _hx_tab_array({[0]=4, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["1"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["1"] = value;
+  end;
+  local value = _hx_tab_array({[0]=8, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["2"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["2"] = value;
+  end;
+  local value = _hx_tab_array({[0]=12, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["3"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["3"] = value;
+  end;
+  local value = _hx_tab_array({[0]=16, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["4"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["4"] = value;
+  end;
+  local value = _hx_tab_array({[0]=20, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["5"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["5"] = value;
+  end;
+  local value = _hx_tab_array({[0]=24, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["6"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["6"] = value;
+  end;
+  local value = _hx_tab_array({[0]=28, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["7"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["7"] = value;
+  end;
+  local value = _hx_tab_array({[0]=32, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["8"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["8"] = value;
+  end;
+  local value = _hx_tab_array({[0]=36, 11, 4, 5}, 4);
+  if (value == nil) then 
+    _g.h["9"] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["9"] = value;
+  end;
+  local value = _hx_tab_array({[0]=40, 11, 3, 5}, 4);
+  if (value == nil) then 
+    _g.h["."] = __haxe_ds_StringMap.tnull;
+  else
+    _g.h["."] = value;
+  end;
+  self.fontMapping = _g;
   self.palleteSwitches = _hx_tab_array({}, 0);
-  self.pallete = _hx_tab_array({[0]=_hx_tab_array({[0]=0, 0, 0}, 3), _hx_tab_array({[0]=29, 42, 83}, 3), _hx_tab_array({[0]=126, 37, 83}, 3), _hx_tab_array({[0]=0, 135, 81}, 3), _hx_tab_array({[0]=171, 82, 54}, 3), _hx_tab_array({[0]=95, 87, 79}, 3), _hx_tab_array({[0]=194, 195, 199}, 3), _hx_tab_array({[0]=255, 241, 232}, 3), _hx_tab_array({[0]=255, 0, 77}, 3), _hx_tab_array({[0]=255, 163, 0}, 3), _hx_tab_array({[0]=255, 236, 39}, 3), _hx_tab_array({[0]=0, 228, 54}, 3), _hx_tab_array({[0]=41, 173, 255}, 3), _hx_tab_array({[0]=131, 118, 156}, 3), _hx_tab_array({[0]=255, 119, 168}, 3), _hx_tab_array({[0]=255, 204, 170, 255}, 4)}, 16);
+  self.pallete = _hx_tab_array({[0]=_hx_tab_array({[0]=0, 0, 0, 255}, 4), _hx_tab_array({[0]=29, 43, 83, 255}, 4), _hx_tab_array({[0]=126, 37, 83, 255}, 4), _hx_tab_array({[0]=0, 135, 81, 255}, 4), _hx_tab_array({[0]=171, 82, 54, 255}, 4), _hx_tab_array({[0]=95, 87, 79, 255}, 4), _hx_tab_array({[0]=194, 195, 199, 255}, 4), _hx_tab_array({[0]=255, 241, 232, 255}, 4), _hx_tab_array({[0]=255, 0, 77, 255}, 4), _hx_tab_array({[0]=255, 163, 0, 255}, 4), _hx_tab_array({[0]=255, 236, 39, 255}, 4), _hx_tab_array({[0]=0, 228, 54, 255}, 4), _hx_tab_array({[0]=41, 173, 255, 255}, 4), _hx_tab_array({[0]=131, 118, 156, 255}, 4), _hx_tab_array({[0]=255, 119, 168, 255}, 4), _hx_tab_array({[0]=255, 204, 170, 255}, 4), _hx_tab_array({[0]=0, 0, 0, 0}, 4)}, 17);
   self.hasInitedENV = false;
   self.initFuncRan = false;
   self.scriptENV = ({});
@@ -621,11 +1017,32 @@ Main.prototype.getTableValue = function(self,table,valueName)
 end
 Main.prototype.load = function(self) 
   __love_LoveProgram.prototype.load(self);
+  self.currentColorPalleteIndices = self.defaultColorPalleteIndices;
   self.canvasForDrawing = love.graphics.newCanvas(128, 128);
+  self.fontImage = love.graphics.newImage("font.png");
+  self.shader = love.graphics.newShader("\r\n\t\t\textern int colorPalleteIndexes[17];\r\n\t\t\textern vec4 colorPallete[17];\r\n\r\n\t\t\tvec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords ) {\r\n\t\t\t\tvec4 _px = Texel(texture, texture_coords); // This is the current pixel color\r\n\t\t\t\tnumber indx = (_px.r*255);\r\n\t\t\t\tvec4 pixel = colorPallete[colorPalleteIndexes[int(indx)]];\r\n\t\t\t\t//pixel.r = pixel.r / 255;\r\n\t\t\t\t//pixel.g = pixel.g / 255;\r\n\t\t\t\t//pixel.b = pixel.b / 255;\r\n\t\t\t\t//pixel.a = 1 - pixel.a;\r\n\t\t\t\t//pixel.a = 1;\r\n\t\t\t\treturn pixel;\r\n\t\t\t}\r\n\t\t");
+  local tblOfTables = ({});
+  local _g = 0;
+  local _g1 = self.pallete;
+  while (_g < _g1.length) do _hx_do_first_1 = false;
+    
+    local col = _g1[_g];
+    _g = _g + 1;
+    local ttlbl = ({});
+    local _g = 0;
+    while (_g < col.length) do _hx_do_first_2 = false;
+      
+      local num = col[_g];
+      _g = _g + 1;
+      _G.table.insert(ttlbl, num / 255);
+    end;
+    _G.table.insert(tblOfTables, ttlbl);
+  end;
+  self.shader:send("colorPallete", self:unpackBChaxedontgotit(tblOfTables));
+  self.shader:send("colorPalleteIndexes", self:unpackBChaxedontgotit(self.defaultColorPalleteIndices));
   self.canvasForDrawing:setFilter("nearest", "nearest");
   local _hx_1__script_contents, _hx_1__script_size, _hx_1__script_contents1, _hx_1__script_error = love.filesystem.read("hello.p8");
   local thgng = self:splitFileIntoParts(_hx_1__script_contents);
-  __haxe_Log.trace(thgng.code, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=96,className="Main",methodName="load"}));
   local spriteSheet = _hx_tab_array({}, 0);
   local splittedSheet = String.prototype.split(thgng.gfx, "\n");
   local _g = 0;
@@ -645,10 +1062,8 @@ Main.prototype.load = function(self)
     spriteSheet:push(lineee);
   end;
   spriteSheet:remove(spriteSheet[0]);
-  __haxe_Log.trace(spriteSheet:join(","), _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=109,className="Main",methodName="load"}));
   local heightSprSheet = spriteSheet.length;
   local widthSprSheet = spriteSheet[1].length;
-  __haxe_Log.trace(widthSprSheet, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=113,className="Main",methodName="load",customParams=_hx_tab_array({[0]=heightSprSheet}, 1)}));
   local outtedSprite = love.image.newImageData(widthSprSheet, heightSprSheet);
   local curY = 1;
   local curX = 1;
@@ -658,7 +1073,6 @@ Main.prototype.load = function(self)
     local line = spriteSheet[_g];
     _g = _g + 1;
     curX = 1;
-    __haxe_Log.trace(line, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=120,className="Main",methodName="load"}));
     local _g = 0;
     while (_g < line.length) do _hx_do_first_2 = false;
       
@@ -667,15 +1081,9 @@ Main.prototype.load = function(self)
       if (char ~= nil) then 
         char = Std.int(Math.max(0, char));
         char = Std.int(Math.min(char, self.pallete.length));
-        local colFromCol = self.pallete[char];
-        if (colFromCol ~= nil) then 
-          local r = Math.max(Math.min(colFromCol[0] / 255, 1), 0.0);
-          local g = Math.max(Math.min(colFromCol[1] / 255, 1), 0.0);
-          local b = Math.max(Math.min(colFromCol[2] / 255, 1), 0.0);
-          __haxe_Log.trace(r, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=133,className="Main",methodName="load",customParams=_hx_tab_array({[0]=g, b}, 2)}));
-          __haxe_Log.trace(curX, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=134,className="Main",methodName="load",customParams=_hx_tab_array({[0]=curY}, 1)}));
+        if (char ~= nil) then 
           if ((((curX < widthSprSheet) and (curY < heightSprSheet)) and (curX > 0)) and (curY > 0)) then 
-            outtedSprite:setPixel(curX - 1, curY - 1, r, g, b, 255);
+            outtedSprite:setPixel(curX - 1, curY - 1, char / 255, char / 255, char / 255, char / 255);
           end;
         end;
         curX = curX + 1;
@@ -683,7 +1091,6 @@ Main.prototype.load = function(self)
     end;
     curY = curY + 1;
   end;
-  outtedSprite:encode("png", "out.png");
   self.spriteSheetImage = love.graphics.newImage(outtedSprite);
   self.spriteSheetImage:setFilter("nearest", "nearest");
   self.script = _hx_box_mr(_hx_table.pack(_G.load(thgng.code)), {"func", "message"});
@@ -691,7 +1098,7 @@ Main.prototype.load = function(self)
     
   end;
   if ((self.script.message ~= nil) and (self.script.message ~= "")) then 
-    __haxe_Log.trace(self.script.message, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=153,className="Main",methodName="load"}));
+    __haxe_Log.trace(self.script.message, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=257,className="Main",methodName="load"}));
   end;
 end
 Main.prototype.getColorPallete = function(self,col) 
@@ -701,37 +1108,46 @@ Main.prototype.getColorPallete = function(self,col)
   if (col == (0/0)) then 
     col = 0;
   end;
+  col = self.currentColorPalleteIndices[col];
   col = Std.int(Math.max(0, col));
   col = Std.int(Math.min(col, self.pallete.length - 1));
-  local _g = 0;
-  local _g1 = self.palleteSwitches;
-  while (_g < _g1.length) do _hx_do_first_1 = false;
-    
-    local palSwap = _g1[_g];
-    _g = _g + 1;
-    if (palSwap.oColor == col) then 
-      col = palSwap.nColor;
-    end;
-  end;
-  do return self.pallete[col] end
+  do return _hx_tab_array({[0]=col, col, col}, 3) end
 end
 Main.prototype.setColToPalleteCol = function(self,col) 
   local colFromCol = self:getColorPallete(col);
   if (colFromCol == nil) then 
     do return end;
   end;
-  love.graphics.setColor(colFromCol[0] / 255, colFromCol[1] / 255, colFromCol[2] / 255, 1.);
+  love.graphics.setColor(colFromCol[0], colFromCol[1], colFromCol[2], 1.);
+end
+Main.prototype.unpackBChaxedontgotit = function(self,thing) 
+  do return unpack(thing) end
+end
+Main.prototype.pal = function(self,toEdit,toChangeTo) 
+  self.currentColorPalleteIndices[toEdit] = self.defaultColorPalleteIndices[toChangeTo];
+  local tmp = self.shader;
+  local arr = self.currentColorPalleteIndices;
+  local ret = ({});
+  local _g = 0;
+  local _g1 = arr.length;
+  while (_g < _g1) do _hx_do_first_1 = false;
+    
+    _g = _g + 1;
+    local idx = _g - 1;
+    ret[idx + 1] = arr[idx];
+  end;
+  tmp:send("colorPalleteIndexes", self:unpackBChaxedontgotit(ret));
 end
 Main.prototype.addFunctions = function(self,ENV) 
   local _gthis = self;
   ENV.music = function(i) 
-    __haxe_Log.trace("mus ran!", _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=187,className="Main",methodName="addFunctions"}));
   end;
   ENV.spr = function(spr,x,y) 
     local sprSheetXs = _gthis.spriteSheetImage:getWidth();
     local sprSheetYs = _gthis.spriteSheetImage:getHeight();
     local sprSheetX = _G.math.fmod(spr * 8, sprSheetXs);
     local sprSheetY = _G.math.floor(spr / sprSheetYs) * 8;
+    _gthis:setColToPalleteCol(7);
     love.graphics.draw(_gthis.spriteSheetImage, love.graphics.newQuad(sprSheetX, sprSheetY, 8, 8, _gthis.spriteSheetImage), x, y);
   end;
   ENV.cls = function(col) 
@@ -742,16 +1158,81 @@ Main.prototype.addFunctions = function(self,ENV)
     col = Std.int(Math.max(0, col));
     col = Std.int(Math.min(col, _gthis.pallete.length - 1));
     love.graphics.clear(colFromCol[0], colFromCol[1], colFromCol[2]);
+    _gthis:pal(col, 16);
   end;
   ENV.t = function() 
-    do return _gthis.time end;
+    do return _G.math.floor((_gthis.time * 400) + 0.5) / 400 end;
   end;
   ENV.cos = function(value) 
     do return _G.math.cos(value * 6) end;
   end;
-  ENV.pal = function(t1,t2) 
+  ENV.pal = function(toEdit,toChangeTo) 
+    _gthis:pal(toEdit, toChangeTo);
   end;
-  ENV.print = function(str,x,y,col) 
+  ENV.tostr = function(thing) 
+    do return _G.tostring(thing) end;
+  end;
+  ENV.print = function(strValue,x,y,col) 
+    local str = _G.tostring(strValue);
+    if ((((x == nil) and (y == nil)) and (_gthis.lastTextPosition ~= nil)) and (_gthis.lastTextPosition.length > 1)) then 
+      x = _gthis.lastTextPosition[0];
+      y = _gthis.lastTextPosition[1] + 7;
+    else
+      if (x == nil) then 
+        x = 0;
+      end;
+      if (y == nil) then 
+        y = 0;
+      end;
+    end;
+    if (col == nil) then 
+      if ((_gthis.lastTextColor ~= nil) and (_gthis.lastTextColor ~= -1)) then 
+        col = _gthis.lastTextColor;
+      else
+        col = 7;
+      end;
+    end;
+    local i = 0;
+    local oColorAt7 = _gthis.currentColorPalleteIndices[6];
+    _gthis:pal(7, col);
+    local _g = 0;
+    local _g1 = String.prototype.split(str, "");
+    while (_g < _g1.length) do _hx_do_first_1 = false;
+      
+      local letter = _g1[_g];
+      _g = _g + 1;
+      if (_gthis.fontMapping.h[letter] ~= nil) then 
+        local ret = _gthis.fontMapping.h[letter];
+        local letterPositioning = (function() 
+          local _hx_1
+          if (ret == __haxe_ds_StringMap.tnull) then 
+          _hx_1 = nil; else 
+          _hx_1 = ret; end
+          return _hx_1
+        end )();
+        local charWidth = 5;
+        local charHeight = 7;
+        local xOffset = 0;
+        local yOffset = 0;
+        if (letterPositioning[2] ~= nil) then 
+          charHeight = letterPositioning[2];
+        end;
+        if (letterPositioning[3] ~= nil) then 
+          charHeight = letterPositioning[3];
+        end;
+        if (letterPositioning[4] ~= nil) then 
+          xOffset = letterPositioning[4];
+        end;
+        if (letterPositioning[5] ~= nil) then 
+          yOffset = letterPositioning[5];
+        end;
+        love.graphics.draw(_gthis.fontImage, love.graphics.newQuad(letterPositioning[0], letterPositioning[1], charWidth, charHeight, _gthis.fontImage), (x + (i * 4)) + xOffset, y + yOffset);
+      end;
+      i = i + 1;
+    end;
+    _gthis:pal(7, oColorAt7);
+    _gthis.lastTextPosition = _hx_tab_array({[0]=x, y}, 2);
+    _gthis.lastTextColor = col;
   end;
   ENV.rnd = function(min,max) 
     do return 0 end;
@@ -865,15 +1346,27 @@ Main.prototype.splitFileIntoParts = function(self,code)
 end
 Main.prototype.draw = function(self) 
   __love_LoveProgram.prototype.draw(self);
-  love.graphics.push();
-  love.graphics.setCanvas(self.canvasForDrawing);
-  if (self.drawFunction ~= nil) then 
-    self.drawFunction();
-    local _hx_1_oColor_r, _hx_1_oColor_g, _hx_1_oColor_b, _hx_1_oColor_a = love.graphics.getColor();
-    self:setColToPalleteCol(7);
-    love.graphics.setColor(1, 1, 1, 1);
-    love.graphics.draw(self.spriteSheetImage, 0, 0);
+  self.lastTextPosition = _hx_tab_array({}, 0);
+  self.lastTextColor = -1;
+  local _g = _hx_tab_array({}, 0);
+  local _g1 = 0;
+  local _g2 = self.defaultColorPalleteIndices;
+  while (_g1 < _g2.length) do _hx_do_first_1 = false;
+    
+    local i = _g2[_g1];
+    _g1 = _g1 + 1;
+    _g:push(i);
   end;
+  self.currentColorPalleteIndices = _g;
+  love.graphics.setColor(1, 1, 1, 1);
+  love.graphics.push();
+  love.graphics.setShader(self.shader);
+  love.graphics.setCanvas(self.canvasForDrawing);
+  if ((self.drawFunction ~= nil) and self.shouldRunThisFrame) then 
+    self.drawFunction();
+    self:setColToPalleteCol(7);
+  end;
+  love.graphics.setShader();
   love.graphics.pop();
   love.graphics.scale(4, 4);
   love.graphics.setCanvas();
@@ -886,7 +1379,6 @@ Main.prototype.update = function(self,dt)
       _G.setfenv(self.script.func, self.scriptENV);
       self:addFunctions(self.scriptENV);
       self.script.func();
-      __haxe_Log.trace(self.scriptENV, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=338,className="Main",methodName="update"}));
       self.drawFunction = self:getTableValue(self.scriptENV, "_draw");
       self.updateFunction = self:getTableValue(self.scriptENV, "_update");
       self.update60Function = self:getTableValue(self.scriptENV, "_update60");
@@ -900,7 +1392,6 @@ Main.prototype.update = function(self,dt)
   end;
   local tmp = self;
   tmp.time = tmp.time + dt;
-  __haxe_Log.trace(self.time, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=351,className="Main",methodName="update"}));
   if ((self.updateFunction ~= nil) and self.shouldRunThisFrame) then 
     self.updateFunction();
   end;
